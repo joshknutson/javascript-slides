@@ -153,21 +153,27 @@
                </style>
                <section>
                   <ul id="toc-list">
-                     <li>Breakpoints</li>
+                     <!--<li>Breakpoints</li>
                      <li>Watches</li>
                      <li>Using the console</li>
-                     <li>Call Stack</li>
+                     <li>Call Stack</li>-->
                   </ul>
                </section>
             </div>
-            <div class="slide" id="history">
-            <header>
 
-                  <h2>History</h2>
-            </header>
+      <div class="slide transitionSlide" id="history-title">
+        <section class="middle">
+          <h2>History</h2>
+          <p>A rocky past</p>
+          <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png" title="HTML5 Offline &amp; Storage" alt="HTML5 Offline &amp; Storage">
+        </section>
+      </div>
+
+            <div class="slide" id="history-title_">
+                <h2>History</h2>
                <section class="middle">
                   <div>
-                     <img src = "src/history1.png" />
+                     <img src = "src/history1.png" style="max-height:800px" />
                   </div>
                </section>
             </div>
@@ -195,8 +201,10 @@ function myFunc() {
                   </div>
                </section>
             </div>
-            <div class="slide" id="web-sql-db">
-               <h2>Functions</h2>
+
+            <div class="slide" id="functions">
+               <header>Functions</header>
+               <section>
                <div>Different ways to declare them</div>
                <div>
                   <br>
@@ -220,14 +228,17 @@ $("#myButton").click(function() {
                </section>
             </div>
 
-            <div class="slide" id="breakpoint-title">
-              <header>BreakPoints</header>
-              <section>
-                <ul>
+
+            <div class="slide transitionSlide" id="breakpoint-title">
+              <section class="middle">
+              <h2>BreakPoints</h2>
+               <p> <ul>
                   <li>Navigating Code</li>
                   <li>Standard</li>
                   <li>Conditional</li>
                 </ul>
+                </p>
+          <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png" title="HTML5 Offline &amp; Storage" alt="HTML5 Offline &amp; Storage">
               </section>
             </div>
 
@@ -363,14 +374,8 @@ $("#myButton").click(function() {
          </aside>
       </div>
       <!-- presentation -->
-      <!--[if lt IE 9]>
-      <script
-         src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-      <script>CFInstall.check({ mode: "overlay" });</script>
-      <![endif]-->
       <script src="src/prettify/prettify.js" onload="prettyPrint();" defer></script>
       <script src="js/utils.js"></script>
-      <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
       <script>
          // Check if new appcache is available, load it, and reload page.
          if (window.applicationCache) {
