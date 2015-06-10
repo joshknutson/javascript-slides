@@ -259,11 +259,8 @@ video {
 .two-column {
 	column-count: 2; -webkit-column-count: 2; -moz-column-count: 2;
 }
-.summary li::before {
-	content: "· ";
-}
-.bullets li::before {
-	content: "· ";
+.summary li::before, .bullets li::before {
+  content: '\b7\a0'; /* \b7 is a middot, \a0 is a space */
 }
 .stroke {
 	-webkit-text-stroke-color: red; -webkit-text-stroke-width: 1px;
