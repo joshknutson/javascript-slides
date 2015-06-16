@@ -99,3 +99,5 @@ nav#helpers button#slide-no {
 menu {
   display: inline;
 }
+.inline{display:inline;}
+.left{float:left;}

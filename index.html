@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html manifest="cache.appcache">
+<html >
+  <!--manifest="cache.appcache"-->
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
     <title>Javascript Presentation</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" rel="stylesheet" type="text/css" />
-    <link id="prettify-link" href="src/prettify/prettify.css" rel="stylesheet" disabled />
+    <link id="prettify-link" href="src/prettify/prettify.css" rel="stylesheet" disabled="true" />
     <link href="css/moon.css" class="theme" rel="stylesheet" />
     <link href="css/sand.css" class="theme" rel="stylesheet" />
     <link href="css/sea_wave.css" class="theme" rel="stylesheet" />
@@ -15,9 +16,9 @@
   </head>
   <body>
     <nav id="helpers">
-      <button title="Previous slide" id="nav-prev" class="nav-prev">⇽</button>
+      <button title="Previous slide" id="nav-prev" class="nav-prev">&larr;</button>
       <button title="Jump to a random slide" id="slide-no">5</button>
-      <button title="Next slide" id="nav-next" class="nav-next">⇾</button>
+      <button title="Next slide" id="nav-next" class="nav-next">&rarr;</button>
       <menu>
         <button type="checkbox" data-command="toc" title="Table of Contents" class="toc">TOC</button>
         <!-- <button type="checkbox" data-command="resources" title="View Related Resources">☆</button> -->
@@ -90,20 +91,21 @@
             </hgroup>
           </section>
         </div>
-        <div class="slide">
+        
+        <div class="slide" id="authors">
           <header>Who Are We?</header>
           <section>
-            <h3>Josh Knutson</h3>
-            <ul>
-              <li>[Fill in]</li>
-            </ul>
-            <br />
             <h3>Ryan Vikander</h3>
             <ul>
               <li>Software Developer 3</li>
               <li>@ Imagtrend for 8+ years</li>
               <li>Expert in CF, JS, CSS, and some .NET</li>
               <li>Gamer of all types of games</li>
+            </ul>
+            <br />
+            <h3>Josh Knutson</h3>
+            <ul>
+              <li>Ditto</li>
             </ul>
           </section>
         </div>
@@ -137,7 +139,15 @@
             <ul id="toc-list"></ul>
           </section>
         </div>
-
+        <!-- don't touch above this line -->
+        <div class="slide" id="atwoods-law">
+          <header>Atwood's Law</header>
+          <section>
+          <blockquote>Any application that can be written in JavaScript, will eventually be written in JavaScript.</blockquote>
+          <p><img src="src/coding-horror-official-logo-small.png" class="inline left" />&ndash;Jeff Atwood, in his 2007 blog post:<br/><a href="http://www.codinghorror.com/blog/2007/07/the-principle-of-least-power.html">The Principle of Least Power</a></p>
+          </section>
+        </div>
+               
         <div class="slide" id="timeline-slide">
           <header>What is Javascript</header>
           <section>
@@ -154,32 +164,15 @@
             </div>
           </section>
         </div>
-
-        <div class="slide transitionSlide" id="history-title">
-          <section class="middle">
-            <h2>History</h2>
-            <p>A rocky past</p>
-            <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png" title="HTML5 Offline &amp; Storage" alt="HTML5 Offline &amp; Storage" style="display:none;">
-          </section>
-        </div>
-
-        <div class="slide" id="history-title_">
-          <section class="middle">
-            <div>
-              <img src = "src/history1.png" style="max-height:690px" />
-            </div>
-          </section>
-        </div>
-
+        
         <div class="slide transitionSlide" id="recap-title">
           <section class="middle">
             <h2>Quick Recap</h2>
-            <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png" title="HTML5 Offline &amp; Storage" alt="HTML5 Offline &amp; Storage" style="display:none;">
+            <img src="http://www.html5rocks.com/static/images/identity/classes_32/HTML5_3D_Effects_32.png">
           </section>
         </div>
         <div class="slide types-variables" id="types-variables">
           <header>
-            <span class="js">JS</span>
             <h1>types and Variables</h1>
           </header>
           <section>
@@ -189,16 +182,16 @@
                 <li>Local</li>
                 <li>Global</li>
               </ul>
-                <pre>
-                var myVar = 1;
-                var one=1, two = 2, three="three";
-                four = 4; // bad way of declaring (no "var" keyword)
+                <pre><code class="language-js">
+var myVar = 1;
+var one=1, two = 2, three="three";
+four = 4; // bad way of declaring (no "var" keyword)
 
-                function myFunc() {
-                  var x; // local variable
-                  x = myVar; // assignment to a global variable
-                }
-                </pre>
+function myFunc() {
+  var x; // local variable
+  x = myVar; // assignment to a global variable
+}
+                </code></pre>
             </div>
           </section>
         </div>
@@ -210,35 +203,45 @@
             <div>
               <br>
             </div>
-            <pre>
-              // function with one argument
-              function abc(someArg) {
-                alert("Hello world " + someArg);
-              }
-              abc("of Javascript");
+            <pre><code class="language-js">
+// function with one argument
+function abc(someArg) {
+  alert("Hello world " + someArg);
+}
+abc("of Javascript");
 
-              // function assigned to a variable
-              var myFunc = function() {
-                alert("myFunc");
-              };
+// function assigned to a variable
+var myFunc = function() {
+  alert("myFunc");
+};
 
-              // lambda syntax
-              $("#myButton").click(function() {
-                alert("Button clicked!");
-              });
-            </pre>
+// lambda syntax
+$("#myButton").click(function() {
+  alert("Button clicked!");
+});
+            </code></pre>
           </section>
+        </div>
+        
+        <div class="slide" id="alerts-anounymous">
+          <section class="middle">
+            <h2>Alerts Anyone?</h2>
+            <p>Do you debug your JavaScript by adding code like this?</p>
+		        <pre><code class="language-js">
+alert(foo);
+				</code></pre>
+				<br/> </section>
         </div>
 
 
         <div class="slide transitionSlide" id="breakpoints-title">
           <section class="middle">
             <h2>Breakpoints</h2>
-            <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png" title="HTML5 Offline &amp; Storage" alt="HTML5 Offline &amp; Storage" style="display:none;">
+            <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png"  style="display:none;">
           </section>
         </div>
 
-        <div class="slide">
+        <div class="slide" id="breakpoint-breakdown">
           <header>Breakpoints</header>
           <section>
             <h3>Benefits</h3>
@@ -258,7 +261,7 @@
           </section>
         </div>
 
-        <div class="slide">
+        <div class="slide" id="breakpoint-example">
           <header>Breakpoints</header>
           <section>
             <h3>Example</h3>
@@ -269,7 +272,8 @@
         <div class="slide transitionSlide" id="watches-title">
           <section class="middle">
             <h2>Watches</h2>
-            <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png" title="HTML5 Offline &amp; Storage" alt="HTML5 Offline &amp; Storage" style="display:none;">
+               <p>Auto-updating value list for specified variables. Exactly like variable watches in every other step debugger ever</p>
+               <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png" style="display:none" >
           </section>
         </div>
 
@@ -283,7 +287,6 @@
           <header>Watches</header>
           <section>
             <img class="watch" src="src/apple-watch.jpg" />
-            <br />
           </section>
         </div>
         <div class="slide">
@@ -324,19 +327,20 @@
         <div class="slide transitionSlide" id="console-title">
           <section class="middle">
             <h2>Using The Console</h2>
-            <p>A rocky past</p>
-            <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png" title="HTML5 Offline &amp; Storage" alt="HTML5 Offline &amp; Storage" style="display:none;">
+            <p>The Console API provides web applications with methods for writing information to the console, creating JavaScript profiles, and initiating a debugging session.</p>
+            <img src="http://www.html5rocks.com/static/images/identity/classes_64/HTML5_Offline_Storage_64.png"  style="display:none;">
           </section>
         </div>
 
-        <div class="slide">
-        <header>Using the Console</header>
+        <div class="slide" id="console-list">
+        <header>Console</header>
           <section>
             <ul>
               <li>console.log()</li>
               <li>console.assert(expression,object)</li>
+              <li>console.time()</li>
               <li>console.table()</li>
-              <li>Multiline commands</li>
+              <li>console.group()</li>
               <li>snippets</li>
               <li>Live editing</li>
               <li>Debugger</li>
@@ -344,59 +348,96 @@
           </section>
         </div>
 
-        <div class="slide">
-          <header>Using the Console</header>
+        <div class="slide" id="console-log">
+          <header>Console</header>
           <section>
             <h3>console.log()</h3>
-            <pre>
-              console.log("Hello World");
-              console.log(1 + 2);
+            <p>console.log() takes multiple arguments
+              <br />
+              Label your debug output!
+            </p>
+            <pre><code class="language-js">
+console.log("Hello World");
+console.log(1 + 2);
 
-              var foo = "bar";
-              console.log(foo);
-              console.log("foo", foo);
-              foo = true;
-              console.log(!foo);
-            </pre>
+var foo = "bar";
+console.log(foo);
+console.log("foo:", foo);
+foo = true;
+console.log(!foo);
+//also handy!
+console.info('info:', foo);
+console.warn('warn:', foo);
+console.error('error:', foo);
+            </code></pre>
 
             <img src="src/consolelog.png" />
           </section>
         </div>
 
-        <div class="slide">
-          <header>Using the Console</header>
+        <div class="slide" id="console-assert">
+          <header>Console</header>
           <section>
             <h3>console.assert()</h3>
-            <pre>
-              var colors = ['red', 'blue', 'green'];
-              console.assert(colors.length < 1, "Colors count is >= 1");
-            </pre>
+            <pre><code class="language-js">
+var colors = ['red', 'blue', 'green'];
+console.assert(colors.length < 1, "Colors count is >= 1");
+            </code></pre>
 
             <img src="src/consoleassert.png" />
-            <pre>
-              var colors = ['red', 'blue', 'green'];
-              console.assert(colors.length > 1, "Colors count is <= 1");
-            </pre>
+            <pre><code class="language-js">
+var colors = ['red', 'blue', 'green'];
+console.assert(colors.length > 1, "Colors count is <= 1");
+            </code></pre>
 
             <img src="src/consoleassert2.png" />
           </section>
         </div>
-
-        <div class="slide">
-          <header>Using the Console</header>
+        
+        <div class="slide" id="console-time">
+          <header>Console</header>
+          <section>
+        Simple Timing</h2>
+				<pre><code class="language-js">
+console.time('myTimer');
+for (var i=0; i<100; i++){ console.log(i); }
+console.timeEnd('myTimer');
+				</code></pre>
+          </section>
+          </div>
+          
+        <div class="slide" id="console-table">
+          <header>Console</header>
           <section>
             <h3>console.table()</h3>
-            <pre>
-              console.table([{a:1, b:2, c:3}, {a:"foo", b:false, c:undefined}]);
-              console.table([[1,2,3], [2,3,4]]);
-            </pre>
+            <pre><code class="language-js">
+console.table([{a:1, b:2, c:3}, {a:"foo", b:false, c:undefined}]);
+console.table([[1,2,3], [2,3,4]]);
+            </code></pre>
 
             <img src="src/consoletable.png" />
           </section>
         </div>
+        
+        <div class="slide" id="console-group">
+          <header>console.group</header>
+          <section>
+            <h3>console.group(object[, object, ...])</h3>
+            <p>Starts a new logging group with an optional title. All console output that occurs after calling this method and calling console.groupEnd() appears in the same visual group.</p>
+            <pre><code class="language-js">
+console.group("Authenticating user '%s'", user);
+console.log("User authenticated");
+someOtherLongFunction();
+console.groupEnd();
+            </code></pre>
 
-        <div class="slide">
-          <header>Using the Console</header>
+            <img src="src/log-group-simple.png" />
+            <p>console.groupEnd() - Closes the most recently created logging group that previously created with console.group() or</p>
+          </section>
+        </div>
+
+        <div class="slide" id="snippets">
+          <header>Console</header>
           <section>
             <h3>Snippets</h3>
             <ul>
@@ -408,8 +449,8 @@
           </section>
         </div>
 
-        <div class="slide">
-          <header>Using the Console</header>
+        <div class="slide" id="live-editing">
+          <header>Console</header>
           <section>
             <h3>Live Editing</h3>
             <ul>
@@ -420,20 +461,22 @@
           </section>
         </div>
 
-        <div class="slide">
-          <header>Using the Console</header>
+        <div class="slide" id="debugger">
+          <header>Debugging With debugger;</header>
           <section>
             <h3>Debugger</h3>
-            <ul>
-              <li>Edit within the elements tab</li>
-            </ul>
+            <p>You can automatically create a breakpoint in your code by adding the following line to your 
+              JavaScript: debugger; . This will automatically create a breakpoint in the code when it is run with Developer Tools open.
+             <br />
+             note:not part of console commands 
+             </p>
 
-            <img src="src/liveediting.png" />
+            <img src="src/debugger.png" style="width:100%" />
           </section>
         </div>
 
 
-        <div class="slide" id="chrome-frame">
+        <div class="slide" id="resources">
           <style>
             span.space {
               padding: 0 5px;
@@ -444,25 +487,16 @@
           </header>
           <section>
             <ul class="bullets">
-              <li>Google Dev Tools</li>
-              <li>https://developer.chrome.com/devtools</li>
-              <li>Dev Tool Secrets</li>
-              <li>http://devtoolsecrets.com/</li>
+              <li><a href="https://developer.chrome.com/devtools/docs/javascript-debugging" target="_blank"/>Google Chrome Debug Guide</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Debugging" target="_blank"/>Mozilla Debug Guide</a></li>
+              <li><a href="https://msdn.microsoft.com/en-us/library/bg182326(v=vs.85).aspx" target="_blank"/>Internet Explorer Developer Tools Guide</a></li>
+              <li><a href="http://devtoolsecrets.com/" target="_blank"/>Dev Tool Secrets</a></li>
             </ul>
           </section>
         </div>
-
+        
+        <!-- don't touch below this line -->
         <div class="slide" id="formula-outro-slide">
-          <style>
-            p.resource-link {
-              font-size: 40px;
-            }
-            p.resource-link a {
-              color: blue;
-              text-decoration: underline;
-              border: none;
-            }
-          </style>
           <section class="middle formula">
             <img src="src/logo.png" />
             <p>
